@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/memo.css">
+    <title>Memo</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+</head>
+<body>
+ <header class="myheader">
+     <div>
+     <p id="bn"> Bienvenue , <%= client.name %> ! Voici vos memos 
+     </p>
+    </div>
+   </header> 
+   <div id="maindiv" style="overflow: auto; height:90%;">
+           
+    <% if(memos.length >0){ 
+        memos.forEach(element => { %>
+
+
+
+            <div class="container">
+                <form method="POST">
+                <div>
+                    <input type="hidden" name="idmemo"   value="<%=element.idmemo%>"  >
+                    <input type="hidden" name="idclient" value="<%=element.idowner%>" >
+                    <input type="hidden" name="titre"    value="<%=element.titre%>"   >
+                    <input type="hidden" name="contenu"  value="<%=element.content%>" >
+
+
+
+                    <h4 style="margin: 0px auto 3px auto; text-align: center;"><%=element.titre%></h4>
+                    <hr>
+                    <p><%=element.content%></p>
+                </div>
+                <div>
+                    <button type="submit" class="mybutton" style="width: 33%;" formaction="/supprimer" >Supprimer</button>
+                    <button type="submit" class="mybutton" style="width: 33%;" formaction="/modifmemo" >Modifier</button>
+                    <button type="submit" class="mybutton" style="width: 33%;" formaction="/partager">Partager</button>
+          
+          
+                </div>
+               </form>
+              </div>
+            
+
+        <% }) 
+         } else{ %>  
+
+            <p style="margin-top: 50px; text-align: center;"> Vous n'avez aucun Memo </p>
+
+     <% } %>
+             
+            
+
+        
+   
+
+
+   
+
+     
+          
+
+    </div>   
+    <div class="btncnt">
+        <button id="add"></button>
+    </div>
+    <div class="popupcnt" id="popup">
+          <div class="popdiv" >
+           <form action="" method="POST" id="monform">
+               <input type="number" value="<%=client.id%>" style="display: none;" name="idclient">
+               <div>
+                 <p style="margin-bottom: 10px;">Introduisez votre memo</p>
+                 <hr style="margin: 0 40px 10px 40px;">
+               </div>
+               <div>
+               <input type="text" name="titre" placeholder="votre titre" class="myinput" required>
+               </div>
+               <div>
+               <textarea class="myarea" name="contenu" cols="30" rows="10" placeholder="votre contenu" required></textarea>
+               </div>
+               <button class="mybutton" type="submit" formaction="/newmemo">Enregistrer</button>
+               <button class="mybutton" id="Fermer">Fermer</button>
+            </form>
+        </div>
+     </div>
+       <div style="display: none;" id="mymsg"><%= message %></div>
+        <script>
+
+          $("#Fermer").click(function(){
+                $("#monform").find("input[type=text], textarea").val("");
+                $("#popup").css("display","none");
+          });
+
+          $("#add").click(function(){
+            $("#popup").css("display","inline");   
+          });
+
+          $(document).ready(function(){
+          $(".container").slideDown("slow");
+          if($("#mymsg").text()!="rien")
+          {
+          alert($("#mymsg").text());
+          }            
+       
+        });
+
+        
+
+
+        
+
+         </script>
+</body>
+</html>

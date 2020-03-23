@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partage</title>
+    <link rel="stylesheet" href="../css/memo.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            <input type="hidden" name="idmemo"   value="<%=idmemo%>"   >
+            <input type="hidden" name="idclient" value="<%=idclient%>" >
+            <input type="hidden" name="titre"    value="<%=titre%>"    >
+            <input type="hidden" name="content"  value="<%=contenu%>"  >
+
+
+
+           <div>
+            <% if(users.length >0){ %>
+                  
+            <div>
+            <label for="users">Choisir l'utilisateur :</label>
+            <select name="users" id="users">
+                <% users.forEach(element => { %> 
+                <option value="<%=element.id%>"><%=element.name%></option>
+                <% })%> 
+            </select>
+
+            </div>
+            <div>
+               <button class="mybutton" type="submit" style="width: 49%;" formaction="/validpartage">Valider</button> 
+               <button class="mybutton" type="submit" style="width: 49%;" formaction="/loadmainpage">Retour</button>
+            </div>
+
+         <%  
+         } else{ %>  
+            <div>
+            <p style="margin-top: 50px; text-align: center;"> Vous n'avez personne avec qui partager</p>
+            <button class="mybutton" type="submit" style="width: 100%;" formaction="/loadmainpage">Retour</button>
+            </div>
+          <% } %>
+            </div>
+            
+        </form>
+    </div>
+    <div style="display: none;" id="mymsg"><%= message %></div>
+    <script>
+        $(document).ready(function(){
+        
+        if($("#mymsg").text()!="rien")
+       {
+          alert($("#mymsg").text());
+       }            
+       
+        });
+       
+    </script>
+</body>
+</html>

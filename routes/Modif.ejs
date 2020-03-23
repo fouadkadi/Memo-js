@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier</title>
+    <link rel="stylesheet" href="../css/memo.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+
+</head>
+<body>
+    <div style="text-align: center; margin-top: 100px;">
+    <form action="" method="POST">
+        <input type="hidden" name="idmemo"  value="<%=memo.idmemo%>"   >
+        <input type="hidden" name="idclient" value="<%=memo.idowner%>" >
+     <div>
+         <input class="myinput" type="text" name="titre" value="<%=memo.titre%>" placeholder="Votre titre ici" required>
+     </div>
+     <div>
+         <textarea class="myarea" name="content" cols="30" rows="10" placeholder="Votre contenue ici" required><%=memo.content%></textarea>
+     </div>
+     <div>
+         <button type="submit" class="mybutton" formaction="/validmodif">Valider</button>
+         <button type="reset" class="mybutton">Annuler</button>
+
+     </div>
+    </form>
+</div>
+
+</body>
+</html>

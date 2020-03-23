@@ -1,0 +1,63 @@
+
+div .vertical {
+    vertical-align:middle; 
+    
+}
+
+body 
+{
+    background-image: url(../assets/main_back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    background-attachment: fixed;
+    
+}
+
+.logframe
+{   display: none;
+    background-color: rgb(240, 248, 244);
+    width: 40%;
+    margin: 10% auto 10% auto;
+    height: 100%;
+    border-radius: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.imagecontaine
+{ 
+    background-image: url(../assets/login.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 60%;
+    margin: 0px auto 15px auto;
+
+}
+
+.myinput
+{
+    width: 80%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+
+}
+.mybutton
+{
+    width: 40%;
+    background-color: darkcyan;
+    color:white;
+    padding: 10px 5px 10px 5px;
+    margin-top: 10px;
+    border: none;
+    font-family: sans-serif;
+    border-radius: 2px;
+}
+.mybutton:hover
+{    background-color: rgb(3, 105, 105);
+
+
+}

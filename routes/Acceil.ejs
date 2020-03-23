@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/home.css">
+    <title>Acceil</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <div class="logframe" id="maframe">
+      <div  class="imagecontaine">  
+      </div>  
+      <form  id="monform" method="POST">
+        <div class="vertical">
+            <div>
+            <input type="text" name="name" id="name" placeholder="Pseudo" class="myinput" required="required" >
+            </div>
+            <div>
+            <input type="password" name="password" id="password" placeholder="mot de passe" class="myinput" required="required">
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" class="mybutton" id="register" formaction="/register"> S'inscrire </button>
+            <button type="submit" class="mybutton" id="log" formaction="/login"> Se connecter</button>
+        </div>
+      
+      </form> 
+  </div>
+  <div style="display: none;" id="mymsg"><%= message %></div>
+  <script>
+      $(document).ready(function(){
+        $("#maframe").fadeIn(1500);
+        
+        if($("#mymsg").text()!="rien")
+       {
+          alert($("#mymsg").text());
+       }            
+       
+                   });
+       
+    
+
+  </script>
+</body>
+</html>
